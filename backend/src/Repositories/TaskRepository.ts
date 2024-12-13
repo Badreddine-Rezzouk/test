@@ -23,10 +23,22 @@ export default class TaskRepository {
       | Prisma.XOR<Prisma.TaskCreateInput, Prisma.TaskUncheckedCreateInput>
       | Prisma.XOR<Prisma.TaskUpdateInput, Prisma.TaskUncheckedUpdateInput>,
   ) {
+    // If `data` has no `id`, it's a creation
     if (!data.id) {
-      // @todo IMPLEMENT HERE USING PRISMA API
+      // Make sure to exclude `id` when creating
+      const { id, ...createData } = data as Prisma.TaskCreateInput; // `id` should not be included in creation
+      return this.prisma.task.create({
+        data: createData, // Pass only creation data (no `id`)
+      });
     }
 
-    // @todo IMPLEMENT HERE USING PRISMA API
+    // If `id` is provided, it's an update
+    const { id, ...updateData } = data as Prisma.TaskUpdateInput;
+    return this.prisma.task.update({
+      where: {
+        id: id as number, // `id` goes in the `where` clause for updates
+      },
+      data: updateData, // Update the other fields
+    });
   }
 }
