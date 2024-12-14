@@ -1,12 +1,17 @@
 // CreateTask.ts
-import { BadRequestException, Injectable, InternalServerErrorException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  InternalServerErrorException,
+} from '@nestjs/common';
 import { UseCase } from '../../index';
 import TaskRepository from '../../Repositories/TaskRepository';
 import SaveTaskDto from '../SaveTask/SaveTaskDto';
 import { Task } from '@prisma/client';
 
 @Injectable()
-export default class CreateTask implements UseCase<Promise<Task>, [SaveTaskDto]> {
+export default class CreateTask
+  implements UseCase<Promise<Task>, [SaveTaskDto]>{
   constructor(private readonly taskRepository: TaskRepository) {}
 
   async handle(dto: SaveTaskDto): Promise<Task> {
@@ -29,4 +34,3 @@ export default class CreateTask implements UseCase<Promise<Task>, [SaveTaskDto]>
     }
   }
 }
-

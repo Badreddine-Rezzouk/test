@@ -10,5 +10,5 @@ paramètre id 'null'
 TaskRepository utilise save pour mettre à jour la task ou la créer selon si un id est passé en paramètre
 Dans ToDoPage.tsx, useEffect await le handleFetchTasks()
 
-A l'écriture de ce README, le projet ne fonctionne pas. Lancer index.html donne une page blanche, je n'ai plus le temps 
-de diagnostiquer la cause de ce comportement
+A l'écriture de ce README, le projet ne fonctionne pas. Lancer index.html donne une page blanche, je n'arrive pas à 
+diagnostiquer ce comportement
