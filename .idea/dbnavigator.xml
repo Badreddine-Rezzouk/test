@@ -29,6 +29,12 @@
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="f6f819cc-4a47-400e-9c60-cda5b0aebe40" />
   </component>
+  <component name="DBNavigator.Project.ExecutionManager">
+    <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/backend/prisma/migrations/20240709213409_init/migration.sql" connection-id="f6f819cc-4a47-400e-9c60-cda5b0aebe40" session-id="MAIN" current-schema="mysql" />
+  </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />

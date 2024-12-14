@@ -16,9 +16,10 @@ export default class CreateTask implements UseCase<Promise<Task>, [SaveTaskDto]>
     }
 
     try {
-      // Create a new task in the database, no `id` is passed to Prisma
-      const newTask = await this.taskRepository.save({
-        name: dto.name,  // Only pass `name`
+      // Create a new task in the database
+      const newTask = await this.taskRepository.save(null, {
+        // Pass `null` for the ID
+        name: dto.name, // Only pass fields required for creation
       });
 
       return newTask;
@@ -28,3 +29,4 @@ export default class CreateTask implements UseCase<Promise<Task>, [SaveTaskDto]>
     }
   }
 }
+
