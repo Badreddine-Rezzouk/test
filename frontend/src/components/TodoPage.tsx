@@ -17,7 +17,7 @@ const TodoPage = () => {
       await api.delete(`/tasks/${id}`);
       await handleFetchTasks();
     } catch (error) {
-      console.error('Failed to delete task:', error);
+      // console.error('Failed to delete task:', error);
     }
   };
 
@@ -26,14 +26,14 @@ const TodoPage = () => {
       const updatedTask = tasks.find((t) => t.id === task.id);
 
       if (updatedTask?.name === task.name) {
-        console.log('Task name did not change. No update needed.');
+        // console.log('Task name did not change. No update needed.');
         return;
       }
 
       await api.put(`/tasks/${task.id}`, { name: task.name });
       await handleFetchTasks();
     } catch (error) {
-      console.error('Failed to save task:', error);
+      // console.error('Failed to save task:', error);
     }
   };
 
@@ -42,13 +42,13 @@ const TodoPage = () => {
       await api.post('/tasks', { name: 'New Task' });
       await handleFetchTasks();
     } catch (error) {
-      console.error('Failed to add task:', error);
+      // console.error('Failed to add task:', error);
     }
   };
 
   useEffect(() => {
     (async () => {
-      handleFetchTasks();
+      await handleFetchTasks();
     })();
   }, []);
 
